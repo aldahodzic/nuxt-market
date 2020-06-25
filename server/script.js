@@ -8,8 +8,15 @@ const products = [
         products: [
             {
                 name: 'Kugoo X1',
+                img: 'https://static.tildacdn.com/tild3039-6437-4330-b733-643030396430/2020-04-04_120022_.jpg',
                 description: 'Lorem ipsum dolor sit amet',
                 price: '30000'
+            },
+            {
+                name: 'Kugoo M4 Pro',
+                img: 'https://static.tildacdn.com/tild3333-6130-4966-b734-356434616335/DSC_7652__.jpg',
+                description: 'Lorem ipsum',
+                price: '34000'
             }
         ]
     },
@@ -18,6 +25,7 @@ const products = [
         products: [
             {
                 name: 'Thunder',
+                img: 'https://images.by.prom.st/182792971_w640_h640_182792971.jpg',
                 description: 'Lorem ipsum dolor sit amet',
                 price: '51900'
             }
@@ -26,10 +34,12 @@ const products = [
 ]
 
 app.get('/all', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
     if(req.query.category) {
         let categoryProducts = products.find(item => item.category.toLowerCase() === req.query.category.toLowerCase());
         if(categoryProducts) {
-            res.send(categoryProducts.products[0])
+            res.send(categoryProducts)
         } else {
             res.send('404')
         }
