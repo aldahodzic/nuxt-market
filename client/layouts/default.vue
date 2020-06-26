@@ -44,6 +44,10 @@ export default {
       {
         route: '/kugoo',
         name: 'Kugoo'
+      },
+      {
+        route: '/white-siberia',
+        name: 'White Siberia'
       }
     ]
   })

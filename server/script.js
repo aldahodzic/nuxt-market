@@ -37,8 +37,15 @@ app.get('/all', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', '*');
     if(req.query.category) {
-        let categoryProducts = products.find(item => item.category.toLowerCase() === req.query.category.toLowerCase());
-        if(categoryProducts) {
+        const categoryProducts = products.find(item => item.category.toLowerCase() === req.query.category.toLowerCase());
+        if(req.query.product) {
+            const selectedProduct = categoryProducts.products.find(item => item.name.toLowerCase() === req.query.product.replace(/-/g, ' ').toLowerCase());
+            if(selectedProduct) {
+                res.send(selectedProduct)
+            } else {
+                res.send('404')
+            }
+        } else if(categoryProducts) {
             res.send(categoryProducts)
         } else {
             res.send('404')
