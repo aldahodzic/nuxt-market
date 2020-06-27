@@ -2,17 +2,22 @@
   <div class="col-lg-3 col-12 mb-4">
     <div class="card h-100 px-0 col-md-12">
       <img class="card-img-top" :src="product.img" :alt="product.name">
-      <div class="card-body pt-2">
-        <h5 class="card-title mt-1">
+      <div class="card-body pt-2 pb-0">
+        <h5 class="card-title font-weight-medium mt-1">
           {{ product.name }}
         </h5>
-        <h5 class="text-muted">
-          Цена: {{ product.price }} ₽
-        </h5>
-        <nuxt-link :to="link" class="btn btn-info font-weight-bold mt-2">
+        <p class="text-muted mb-2">
+          {{ product.description }}
+        </p>
+        <p class="text-success font-weight-medium">
+          {{ product.price }} ₽
+        </p>
+      </div>
+      <div class="card-footer">
+        <nuxt-link :to="link" class="btn btn-info">
           Смотреть
         </nuxt-link>
-        <button class="btn btn-success font-weight-bold mt-2" name="button">
+        <button class="btn btn-success">
           Купить
         </button>
       </div>
@@ -44,5 +49,19 @@ export default {
       height: 15vw;
       object-fit: cover;
   }
+}
+
+.card {
+  border: none;
+}
+
+.card-footer {
+  background-color: white !important;
+  border-top: 0;
+}
+
+.btn {
+  border-radius: 100px;
+  font-size: 14px;
 }
 </style>

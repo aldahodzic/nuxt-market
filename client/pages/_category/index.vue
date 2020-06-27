@@ -2,8 +2,7 @@
   <section class="container mt-4">
     <div v-if="product">
       <h1>{{ product.category }}</h1>
-      <hr>
-      <div class="row">
+      <div class="row mt-4">
         <Product v-for="item in product.products" :key="item.name" :product="item" />
       </div>
     </div>

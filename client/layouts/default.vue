@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Nuxt-market</a>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-bottom">
+      <a class="navbar-brand" href="#">Electroscoo</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -53,3 +53,21 @@ export default {
   })
 }
 </script>
+
+<style media="screen">
+  nav {
+    background-color: #fff;
+  }
+
+  body {
+    background-color: rgba(0,0,0,0.03);
+  }
+
+  .font-weight-medium {
+    font-weight: 600;
+  }
+
+  .shadow-bottom {
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.08);
+  }
+</style>

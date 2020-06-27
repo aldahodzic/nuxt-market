@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4">
-    <h1>Kugoo shop</h1>
+    <h1>Electroscoo</h1>
   </div>
 </template>
 
