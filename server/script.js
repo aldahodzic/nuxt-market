@@ -55,13 +55,11 @@ app.get('/all', (req, res) => {
     }
 });
 
-app.listen(1337, function(){
-    (async function() {
-        try {
-            const connect = await ngrok.connect(1337);
-            console.log(`connected on 1337 and ${connect}`);
-        } catch(e) {
-            throw e
-        }
-    })()
+app.listen(1337, async function() {
+    try {
+        const connect = await ngrok.connect(1337);
+        console.log(`connected on 1337 and ${connect}`);
+    } catch(e) {
+        throw e
+    }
 });
