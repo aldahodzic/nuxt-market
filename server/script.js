@@ -1,5 +1,5 @@
 const express = require('express');
-//const ngrok = require('ngrok');
+const ngrok = require('ngrok');
 const app = express();
 
 const products = [
@@ -55,14 +55,11 @@ app.get('/all', (req, res) => {
     }
 });
 
-app.listen(1337, function(){
-    console.log('running on host 1337')
-    // (async function() {
-    //     try {
-    //         const connect = await ngrok.connect(1337);
-    //         console.log(`connected on 1337 and ${connect}`);
-    //     } catch(e) {
-    //         throw e
-    //     }
-    // })()
+app.listen(1337, async function() {
+    try {
+        const connect = await ngrok.connect(1337);
+        console.log(`connected on 1337 and ${connect}`);
+    } catch(e) {
+        throw e
+    }
 });
