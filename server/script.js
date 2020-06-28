@@ -1,6 +1,18 @@
 const express = require('express');
 const ngrok = require('ngrok');
+const mongoose = require('mongoose');
+const bodyParser =require('body-parser');
 const app = express();
+
+require('dotenv/config');
+
+app.use(bodyParser.json());
+
+//import routes
+const productRoutes = require('./routes/products');
+
+//middleware
+app.use('/', productRoutes);
 
 const products = [
     {
@@ -33,27 +45,16 @@ const products = [
     }
 ]
 
-app.get('/all', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    if(req.query.category) {
-        const categoryProducts = products.find(item => item.category.toLowerCase() === req.query.category.toLowerCase());
-        if(req.query.product) {
-            const selectedProduct = categoryProducts.products.find(item => item.name.toLowerCase() === req.query.product.replace(/-/g, ' ').toLowerCase());
-            if(selectedProduct) {
-                res.send(selectedProduct)
-            } else {
-                res.send('404')
-            }
-        } else if(categoryProducts) {
-            res.send(categoryProducts)
-        } else {
-            res.send('404')
-        }
-    } else {
-        res.send(products)
-    }
-});
+// connect to DB
+mongoose.connect(
+    process.env.DB_CONNECT,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false
+    },
+    () => console.log('connected to DB!')
+);
 
 app.listen(1337, async function() {
     try {
