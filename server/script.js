@@ -21,9 +21,8 @@ mongoose.connect(
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
-    },
-    () => console.log('connected to DB!')
-);
+    }
+).catch(error => handleError(error));
 
 app.listen(1337, async function() {
     try {
