@@ -63,6 +63,10 @@ export default {
     background-color: rgba(0,0,0,0.03);
   }
 
+  .cursor {
+    cursor: pointer;
+  }
+
   .font-weight-medium {
     font-weight: 600;
   }

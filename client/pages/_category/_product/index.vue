@@ -34,7 +34,7 @@ export default {
           path: '/'
         },
         {
-          name: this.category,
+          name: this.category.replace(/-/g, ' '),
           path: `/${this.category}`
         },
         {

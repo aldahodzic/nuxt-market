@@ -1,7 +1,13 @@
 <template>
   <div class="col-lg-3 col-12 mb-4">
     <div class="card h-100 px-0 col-md-12">
-      <img class="card-img-top" :src="product.img" :alt="product.name">
+      <nuxt-link
+        tag="img"
+        :to="link"
+        class="card-img-top cursor"
+        :src="product.img"
+        alt="product.name"
+      />
       <div class="card-body pt-2 pb-0">
         <h5 class="card-title font-weight-medium mt-1">
           {{ product.name }}
@@ -53,6 +59,11 @@ export default {
 
 .card {
   border: none;
+  transition: 300ms;
+}
+
+.card:hover {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06)
 }
 
 .card-footer {

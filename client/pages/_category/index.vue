@@ -1,7 +1,9 @@
 <template>
   <section class="container mt-4">
     <div v-if="product">
-      <h1>{{ product.category }}</h1>
+      <h1 class="title display-4">
+        {{ category }}
+      </h1>
       <div class="row mt-4">
         <Product v-for="item in product.products" :key="item.name" :product="item" />
       </div>
@@ -21,6 +23,11 @@ export default {
   data: () => ({
     product: null
   }),
+  computed: {
+    category () {
+      return this.product.category.replace(/-/g, ' ')
+    }
+  },
   async created () {
     const result = await fetch(`${process.env.baseUrl}all?category=${this.$route.params.category}`)
     this.product = await result.json()
@@ -29,4 +36,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .title {
+    font-size: calc(36px + 16 * ((100vw - 320px) / (1280 - 320)));
+  }
 </style>
