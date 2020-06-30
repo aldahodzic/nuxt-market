@@ -1,15 +1,13 @@
 <template>
-  <section class="container mt-4">
-    <div v-if="product">
-      <h1 class="title display-4">
-        {{ category }}
-      </h1>
-      <div class="row mt-4">
-        <Product v-for="item in product.products" :key="item.name" :product="item" />
-      </div>
+  <section v-if="product">
+    <h1 class="title display-4">
+      {{ category }}
+    </h1>
+    <div class="row mt-4">
+      <Product v-for="item in product.products" :key="item.name" :product="item" />
     </div>
-    <Loader v-else class="mt-5" size="5rem" />
   </section>
+  <Loader v-else class="mt-5" size="5rem" />
 </template>
 
 <script>

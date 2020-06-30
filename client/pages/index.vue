@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-4">
+  <section>
     <h1>Electroscoo</h1>
-  </div>
+  </section>
 </template>
 
 <script>

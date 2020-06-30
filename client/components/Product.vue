@@ -23,9 +23,12 @@
         <nuxt-link :to="link" class="btn btn-info">
           Смотреть
         </nuxt-link>
-        <button class="btn btn-success">
-          Купить
-        </button>
+        <div v-if="!isInCart" class="btn btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="addProductInCart">
+          В корзину
+        </div>
+        <div v-else class="btn btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="removeProductInCart">
+          Добавлено!
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +46,20 @@ export default {
   computed: {
     link () {
       return `${this.$route.path}/${this.product.name.replace(/ /g, '-')}`
+    },
+    cart () {
+      return this.$store.state.cartProducts
+    },
+    isInCart () {
+      return this.cart.some(cartProduct => cartProduct.name === this.product.name)
+    }
+  },
+  methods: {
+    addProductInCart () {
+      this.$store.commit('updateCartProducts', this.product)
+    },
+    removeProductInCart () {
+      this.$store.commit('removeCartProducts', this.product)
     }
   }
 }
@@ -51,10 +68,14 @@ export default {
 <style lang="css" scoped>
 @media screen and (min-width: 992px) {
   .card-img-top {
-      width: 100%;
-      height: 15vw;
-      object-fit: cover;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
   }
+}
+
+.position-absolute {
+  position: absolute;
 }
 
 .card {

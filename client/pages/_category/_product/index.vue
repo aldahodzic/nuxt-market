@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="container mt-4">
+  <section v-if="product" class="mt-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li v-for="item in breadcrumbs" :key="item.name" class="breadcrumb-item">
@@ -12,7 +12,7 @@
     <h1>{{ product.name }}</h1>
     <p>{{ product.description }}</p>
     <h3>Цена: {{ product.price }}</h3>
-  </div>
+  </section>
 </template>
 
 <script>
