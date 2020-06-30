@@ -62,6 +62,10 @@ export default {
     itemsInCart () {
       return this.$store.state.cartProducts.length
     }
+  },
+  mounted () {
+    const cartProducts = sessionStorage.cartProducts ? JSON.parse(sessionStorage.cartProducts) : []
+    this.$store.commit('restoreProductsInCart', cartProducts)
   }
 }
 </script>

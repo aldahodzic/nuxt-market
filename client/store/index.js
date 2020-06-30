@@ -5,11 +5,16 @@ export const state = () => ({
 })
 
 export const mutations = {
+  restoreProductsInCart (state, products) {
+    state.cartProducts = products
+  },
   addCartProduct (state, product) {
     state.cartProducts.push(product)
+    sessionStorage.cartProducts = JSON.stringify(state.cartProducts)
   },
   removeCartProduct (state, product) {
     state.cartProducts = state.cartProducts.filter(cartProduct => cartProduct.name !== product.name)
+    sessionStorage.cartProducts = JSON.stringify(state.cartProducts)
   },
   updateSumPayment (state, product) {
     if (state.cartProductsPrices.some(item => item.name === product.name)) {
