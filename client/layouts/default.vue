@@ -30,8 +30,8 @@
               <a class="nav-link">{{ link.name }}</a>
             </nuxt-link>
           </ul>
-          <nuxt-link to="/cart" class="link navbar-text">
-            Корзина <span class="badge badge-primary">{{ itemsInCart }}</span>
+          <nuxt-link to="/cart" class="navbar-text">
+            Корзина <span class="badge badge-info">{{ itemsInCart }}</span>
           </nuxt-link>
         </div>
       </div>
@@ -67,12 +67,35 @@ export default {
 </script>
 
 <style media="screen">
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+  body {
+    font-family: Source Sans Pro;
+  }
+
   nav {
     background-color: #fff;
   }
 
   body {
     background-color: rgba(0,0,0,0.03);
+  }
+
+  .text-muted-light {
+    color: rgba(0,0,0,0.25);
+  }
+
+  .title {
+    font-size: calc(44px + 16 * ((100vw - 320px) / (1280 - 320)));
+  }
+
+  .btn {
+    border-radius: 100px;
+    font-size: 18px;
+  }
+
+  .btn-small {
+    font-size: 14px;
   }
 
   .cursor {
@@ -85,5 +108,9 @@ export default {
 
   .shadow-bottom {
     box-shadow: 0 4px 2px -2px rgba(0,0,0,0.08);
+  }
+
+  .cart-price-bg {
+    background-color: #fff3b5;
   }
 </style>

@@ -20,13 +20,13 @@
         </p>
       </div>
       <div class="card-footer">
-        <nuxt-link :to="link" class="btn btn-info">
+        <nuxt-link :to="link" class="btn btn-small btn-info">
           Смотреть
         </nuxt-link>
-        <div v-if="!isInCart" class="btn btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="addProductInCart">
+        <div v-if="!isInCart" class="btn btn-small btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="addProductInCart">
           В корзину
         </div>
-        <div v-else class="btn btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="removeProductInCart">
+        <div v-else class="btn btn-small btn-success ml-xl-2 mt-xl-0 mt-lg-2" @click="removeProductInCart">
           Добавлено!
         </div>
       </div>
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     link () {
-      return `${this.$route.path}/${this.product.name.replace(/ /g, '-')}`
+      return `${this.product.category}/${this.product.name.replace(/ /g, '-')}`
     },
     cart () {
       return this.$store.state.cartProducts
@@ -56,10 +56,10 @@ export default {
   },
   methods: {
     addProductInCart () {
-      this.$store.commit('updateCartProducts', this.product)
+      this.$store.commit('addCartProduct', this.product)
     },
     removeProductInCart () {
-      this.$store.commit('removeCartProducts', this.product)
+      this.$store.commit('removeCartProduct', this.product)
     }
   }
 }
@@ -90,10 +90,5 @@ export default {
 .card-footer {
   background-color: white !important;
   border-top: 0;
-}
-
-.btn {
-  border-radius: 100px;
-  font-size: 14px;
 }
 </style>

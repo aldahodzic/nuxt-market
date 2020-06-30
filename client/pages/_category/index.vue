@@ -1,6 +1,6 @@
 <template>
   <section v-if="product">
-    <h1 class="title display-4">
+    <h1 class="title text-info font-weight-bold">
       {{ category }}
     </h1>
     <div class="row mt-4">
@@ -32,9 +32,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-  .title {
-    font-size: calc(36px + 16 * ((100vw - 320px) / (1280 - 320)));
-  }
-</style>
