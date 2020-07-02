@@ -85,6 +85,10 @@ export default {
     background-color: rgba(0,0,0,0.03);
   }
 
+  .min-vh-50 {
+    min-height: 50vh;
+  }
+
   .text-muted-light {
     color: rgba(0,0,0,0.25);
   }
