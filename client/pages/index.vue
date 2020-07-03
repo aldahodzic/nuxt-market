@@ -37,8 +37,8 @@
         </h2>
       </div>
       <div class="mt-4 row">
-        <div class="block col-lg px-0 bg-primary">
-          <nuxt-link tag="div" to="/kugoo" class="block__overlay bg-info min-vh-50">
+        <div class="block col-lg px-0">
+          <nuxt-link tag="div" to="/kugoo" class="block__overlay bg-info">
             <div class="m-auto text-center">
               <h3>
                 Kugoo
@@ -49,8 +49,8 @@
             </div>
           </nuxt-link>
         </div>
-        <div class="block col-lg px-0 bg-primary">
-          <nuxt-link tag="div" to="/white-siberia" class="block__overlay bg-success min-vh-50">
+        <div class="block col-lg px-0">
+          <nuxt-link tag="div" to="/white-siberia" class="block__overlay bg-success">
             <div class="m-auto text-center">
               <h3>
                 White Siberia
@@ -106,7 +106,7 @@ export default {
   }
 
   .block {
-    min-height: 400px;
+    min-height: 470px;
     background: url('https://static.tildacdn.com/tild3461-6261-4333-a433-666635306637/Group_10.jpg');
     background-position: center center;
     background-repeat: no-repeat;
