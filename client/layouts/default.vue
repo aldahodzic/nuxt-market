@@ -108,10 +108,8 @@ export default {
 </script>
 
 <style media="screen">
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
-
   body {
-    font-family: Source Sans Pro;
+    font-family: Source Sans Pro, sans-serif;
   }
 
   nav {
