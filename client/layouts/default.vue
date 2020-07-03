@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-bottom">
       <div class="container">
-        <nuxt-link class="navbar-brand" to="/">
+        <nuxt-link class="navbar-brand font-weight-medium" to="/">
           Electroscoo
         </nuxt-link>
         <button
@@ -36,7 +36,44 @@
         </div>
       </div>
     </nav>
-    <Nuxt class="mt-4 pt-5 container" />
+    <Nuxt class="mt-4 pt-5 min-vh-100" />
+    <footer class="bg-white py-4">
+      <div class="container">
+        <div class="col-12 mx-auto row">
+          <div class="col-lg">
+            <h3 class="font-weight-medium">
+              Electroscoo
+            </h3>
+            <h4 class="font-weight-medium py-2">
+              +380 71 999 99 99
+            </h4>
+            <p class="text-muted">
+              Дизайн главной страницы взят с сайта kugoo-russia.ru
+            </p>
+            <p>© 2020 Electroscoo</p>
+          </div>
+          <div class="col-lg">
+            <div class="">
+              <nuxt-link to="/" class="link">
+                Главная
+              </nuxt-link>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="">
+              <nuxt-link to="/kugoo" class="link">
+                Kugoo
+              </nuxt-link>
+            </div>
+            <div class="">
+              <nuxt-link to="/white-siberia" class="link">
+                White Siberia
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -83,6 +120,16 @@ export default {
 
   body {
     background-color: rgba(0,0,0,0.03);
+  }
+
+  .link, .nav-link {
+    transition: 200ms;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .link:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
   }
 
   .min-vh-50 {

@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <section>
+  <div>
+    <section class="container">
       <h1 class="title text-info font-weight-bold">
         Electroscoo
       </h1>
@@ -14,16 +14,52 @@
         </client-only>
       </div>
     </section>
-    <section class="mt-5">
-      <h2 class="font-weight-bold">
-        Отличный подарок <span class="text-info">ребенку</span>
-      </h2>
-      <div class="col-12 mx-auto row mt-4">
-        <div class="col">
-          123
+    <section class="my-5 py-5 bg-white">
+      <div class="container">
+        <h2 class="font-weight-bold">
+          <font-awesome-icon :icon="['fas', 'gift']" /> Отличный подарок <span class="text-info">ребенку</span>
+        </h2>
+        <div class="col-12 mx-auto row mt-5 px-0">
+          <div v-for="item in bonuses" :key="item.name" class="col-lg text-center bonus">
+            <img :src="item.img" :alt="item.name" class="img-fluid img-bonus">
+            <h4 class="font-weight-medium">
+              {{ item.name }}
+            </h4>
+            <small class="text-muted">{{ item.description }}</small>
+          </div>
         </div>
-        <div class="col">
-          123
+      </div>
+    </section>
+    <section class="col-12 py-5">
+      <div class="container">
+        <h2 class="font-weight-bold">
+          Каталог электротранспорта
+        </h2>
+      </div>
+      <div class="mt-4 row">
+        <div class="block col-lg px-0 bg-primary">
+          <nuxt-link tag="div" to="/kugoo" class="block__overlay bg-info min-vh-50">
+            <div class="m-auto text-center">
+              <h3>
+                Kugoo
+              </h3>
+              <button class="btn btn-white mt-3 px-3">
+                В каталог
+              </button>
+            </div>
+          </nuxt-link>
+        </div>
+        <div class="block col-lg px-0 bg-primary">
+          <nuxt-link tag="div" to="/white-siberia" class="block__overlay bg-success min-vh-50">
+            <div class="m-auto text-center">
+              <h3>
+                White Siberia
+              </h3>
+              <button class="btn btn-white mt-3 px-3">
+                В каталог
+              </button>
+            </div>
+          </nuxt-link>
         </div>
       </div>
     </section>
@@ -36,11 +72,81 @@ import { VueAgile } from 'vue-agile'
 export default {
   components: {
     agile: VueAgile
-  }
+  },
+  data: () => ({
+    bonuses: [
+      {
+        img: 'https://static.tildacdn.com/tild6331-3964-4163-b935-383838643538/_4.png',
+        name: 'Безопасные',
+        description: 'Можно поставить ограничение скорости, чтобы ребенок не разгонялся более 15 км/ч'
+      },
+      {
+        img: 'https://static.tildacdn.com/tild3563-6239-4136-a664-373638393565/_2.png',
+        name: 'Регулируются',
+        description: 'Рулевая стойка регулируется, поэтому на самокате сможет кататься каждый член семьи'
+      },
+      {
+        img: 'https://static.tildacdn.com/tild6161-3966-4262-b538-376566323666/_2.png',
+        name: 'Прочные',
+        description: 'Корпус изготавливается из авиационного алюминия, что повышает выносливость самокатов в несколько раз'
+      },
+      {
+        img: 'https://static.tildacdn.com/tild3662-6561-4631-a339-393966333962/_2.png',
+        name: 'Легкие',
+        description: 'Вес электросамокатов от 15 кг. Такой самокат сможет поднять даже ребенок'
+      }
+    ]
+  })
 }
 </script>
 
 <style media="screen">
+  .img-bonus {
+    width: 240px;
+  }
+
+  .block {
+    min-height: 400px;
+    background: url('https://static.tildacdn.com/tild3461-6261-4333-a433-666635306637/Group_10.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .block__overlay {
+    display: flex;
+    align-self: center;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    transition: 400ms;
+  }
+
+  .block__overlay h3 {
+    color: white;
+    font-weight: 600;
+  }
+
+  .block:hover .block__overlay {
+    opacity: 1;
+  }
+
+  .btn-white {
+    border: 1px solid white;
+    color: white;
+    font-size: 15px;
+  }
+
+  .btn-white:hover {
+    background-color: white;
+  }
+
+  .bonus {
+    line-height: 1.2 !important;
+  }
+
   .agile__actions {
     margin-top: 20px;
   }

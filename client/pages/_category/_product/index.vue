@@ -1,5 +1,5 @@
 <template>
-  <section v-if="product" class="mt-4">
+  <section v-if="product" class="mt-4 container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li v-for="item in breadcrumbs" :key="item.name" class="breadcrumb-item">

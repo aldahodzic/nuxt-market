@@ -1,5 +1,5 @@
 <template>
-  <section v-if="product">
+  <section v-if="product" class="container">
     <h1 class="title text-info font-weight-bold">
       {{ category }}
     </h1>

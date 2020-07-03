@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container">
     <h1 class="title text-muted-light font-weight-bold">
       Корзина
     </h1>
