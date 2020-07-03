@@ -2,10 +2,10 @@
   <div class="col-lg-3 col-12 mb-4">
     <div class="card h-100 px-0 col-md-12">
       <nuxt-link
+        v-lazy="product.img"
         tag="img"
         :to="link"
         class="card-img-top cursor"
-        :src="product.img"
         alt="product.name"
       />
       <div class="card-body pt-2 pb-0">

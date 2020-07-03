@@ -24,11 +24,21 @@ export default {
   computed: {
     category () {
       return this.product.category.replace(/-/g, ' ')
+    },
+    title () {
+      const route = this.$route.params.category
+      const capitalizedRoute = route.charAt(0).toUpperCase() + route.slice(1)
+      return capitalizedRoute.replace(/-/g, ' ')
     }
   },
   async created () {
     const result = await fetch(`${process.env.baseUrl}all?category=${this.$route.params.category}`)
     this.product = await result.json()
+  },
+  head () {
+    return {
+      title: this.title
+    }
   }
 }
 </script>

@@ -45,7 +45,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/vue-agile'
+    '~/plugins/vue-agile',
+    '~/plugins/vue-lazyload'
   ],
   /*
   ** Auto import components

@@ -51,6 +51,9 @@ export default {
     cartSumPayment () {
       return this.$store.state.cartSumPayment
     }
-  }
+  },
+  head: () => ({
+    title: 'Корзина'
+  })
 }
 </script>

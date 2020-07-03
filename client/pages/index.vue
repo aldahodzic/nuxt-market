@@ -36,7 +36,7 @@
           Каталог электротранспорта
         </h2>
       </div>
-      <div class="mt-4 row">
+      <div class="mt-4 row bg-white">
         <div class="block col-lg px-0">
           <nuxt-link tag="div" to="/kugoo" class="block__overlay bg-info">
             <div class="m-auto text-center">
@@ -96,6 +96,9 @@ export default {
         description: 'Вес электросамокатов от 15 кг. Такой самокат сможет поднять даже ребенок'
       }
     ]
+  }),
+  head: () => ({
+    title: 'Главная - Electroscoo'
   })
 }
 </script>
@@ -106,11 +109,11 @@ export default {
   }
 
   .block {
-    min-height: 470px;
+    min-height: 370px;
     background: url('https://static.tildacdn.com/tild3461-6261-4333-a433-666635306637/Group_10.jpg');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     cursor: pointer;
   }
 

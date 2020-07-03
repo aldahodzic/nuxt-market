@@ -13,6 +13,7 @@
     <p>{{ product.description }}</p>
     <h3>Цена: {{ product.price }}</h3>
   </section>
+  <Loader v-else class="mt-5" size="5rem" />
 </template>
 
 <script>
@@ -26,6 +27,9 @@ export default {
     },
     selectedProduct () {
       return this.$route.params.product
+    },
+    title () {
+      return this.$route.params.product.replace(/-/g, ' ')
     },
     breadcrumbs () {
       return [
@@ -47,6 +51,11 @@ export default {
   async created () {
     const result = await fetch(`${process.env.baseUrl}all?category=${this.category}&product=${this.selectedProduct}`)
     this.product = await result.json()
+  },
+  head () {
+    return {
+      title: this.title
+    }
   }
 }
 </script>
