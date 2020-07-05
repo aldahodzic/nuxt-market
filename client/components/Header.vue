@@ -1,21 +1,16 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow-bottom">
+  <b-navbar toggleable="lg" class="navbar fixed-top navbar-expand-lg navbar-light shadow-bottom">
     <div class="container">
       <nuxt-link class="navbar-brand font-weight-medium" to="/">
         Electroscoo
       </nuxt-link>
-      <button
+      <b-navbar-toggle
         class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        target="navbarNav"
       >
         <span class="navbar-toggler-icon" />
-      </button>
-      <div id="navbarNav" class="collapse navbar-collapse">
+      </b-navbar-toggle>
+      <b-collapse id="navbarNav" is-nav>
         <ul class="navbar-nav mr-auto">
           <nuxt-link
             v-for="link in links"
@@ -29,12 +24,18 @@
             <a class="nav-link">{{ link.name }}</a>
           </nuxt-link>
         </ul>
-        <nuxt-link to="/cart" class="navbar-text">
-          Корзина <span class="badge badge-info">{{ itemsInCart }}</span>
+        <nuxt-link
+          to="/cart"
+          tag="span"
+          class="nav-item"
+          active-class="active"
+          exact
+        >
+          <a class="nav-link link px-0">Корзина <span v-if="itemsInCart" class="badge badge-info">{{ itemsInCart }}</span></a>
         </nuxt-link>
-      </div>
+      </b-collapse>
     </div>
-  </nav>
+  </b-navbar>
 </template>
 
 <script>
@@ -43,7 +44,7 @@ export default {
     links: [
       {
         route: '/',
-        name: 'Home'
+        name: 'Главная'
       },
       {
         route: '/kugoo',
@@ -70,5 +71,9 @@ export default {
 <style lang="css" scoped>
 nav {
   background-color: #fff;
+}
+
+.active {
+  color: #000 !important;
 }
 </style>

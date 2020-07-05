@@ -6,7 +6,6 @@
         tag="img"
         :to="link"
         class="card-img-top cursor"
-        alt="product.name"
       />
       <div class="card-body pt-2 pb-0">
         <h5 class="card-title font-weight-medium mt-1">

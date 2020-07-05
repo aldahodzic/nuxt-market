@@ -19,7 +19,7 @@ export default {
 
 <style media="screen">
   body {
-    font-family: Source Sans Pro, sans-serif;
+    font-family: Source Sans Pro, sans-serif !important;
     background-color: rgba(0,0,0,0.03);
   }
 
@@ -46,7 +46,7 @@ export default {
   }
 
   .btn {
-    border-radius: 100px;
+    border-radius: 100px !important;
     font-size: 18px;
   }
 

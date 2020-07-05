@@ -7,7 +7,7 @@
       <div v-if="productsInCart.length" class="">
         <CartProduct v-for="item in productsInCart" :key="item.name" class="my-3" :product="item" />
         <div class="row mx-auto justify-content-between">
-          <div class="d-md-flex d-none col-4 align-self-center">
+          <div class="d-md-flex d-none col-4 px-0 align-self-center">
             <nuxt-link tag="button" to="/" class="btn btn-info py-2 px-3">
               Продолжить покупки
             </nuxt-link>

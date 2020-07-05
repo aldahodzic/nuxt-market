@@ -13,14 +13,16 @@
     <p>{{ product.description }}</p>
     <h3>Цена: {{ product.price }}</h3>
   </section>
-  <Loader v-else class="mt-5" size="5rem" />
 </template>
 
 <script>
 export default {
-  data: () => ({
-    product: null
-  }),
+  async asyncData ({ params }) {
+    const result = await fetch(`${process.env.baseUrl}all?category=${params.category}&product=${params.product}`)
+    return {
+      product: await result.json()
+    }
+  },
   computed: {
     category () {
       return this.$route.params.category
@@ -47,10 +49,6 @@ export default {
         }
       ]
     }
-  },
-  async created () {
-    const result = await fetch(`${process.env.baseUrl}all?category=${this.category}&product=${this.selectedProduct}`)
-    this.product = await result.json()
   },
   head () {
     return {
