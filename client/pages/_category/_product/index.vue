@@ -44,7 +44,7 @@ export default {
           path: `/${this.category}`
         },
         {
-          name: this.selectedProduct,
+          name: this.selectedProduct.replace(/-/g, ' '),
           path: `/${this.category}/${this.selectedProduct}`
         }
       ]

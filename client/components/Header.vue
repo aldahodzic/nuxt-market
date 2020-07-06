@@ -73,7 +73,7 @@ nav {
   background-color: #fff;
 }
 
-.active {
+.active, .active a {
   color: #000 !important;
 }
 </style>

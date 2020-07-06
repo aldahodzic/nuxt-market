@@ -40,11 +40,15 @@ export default {
     product: {
       type: Object,
       required: true
+    },
+    category: {
+      type: String,
+      required: true
     }
   },
   computed: {
     link () {
-      return `${this.product.category}/${this.product.name.replace(/ /g, '-')}`
+      return `${this.category.toLowerCase()}/${this.product.name.replace(/ /g, '-')}`
     },
     cart () {
       return this.$store.state.cartProducts

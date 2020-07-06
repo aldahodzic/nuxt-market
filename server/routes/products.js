@@ -11,8 +11,12 @@ router.get('/all', async (req, res) => {
             const categoryProducts = products.find(item => item.category.toLowerCase() === req.query.category.toLowerCase());
             if(req.query.product) {
                 const selectedProduct = categoryProducts.products.find(item => item.name.toLowerCase() === req.query.product.replace(/-/g, ' ').toLowerCase());
+                const selectedCategory = {
+                  category: categoryProducts.category
+                };
+                const selectedData = {...selectedCategory, ...selectedProduct._doc};
                 if(selectedProduct) {
-                    res.send(selectedProduct)
+                    res.send(selectedData)
                 } else {
                     res.send('404')
                 }

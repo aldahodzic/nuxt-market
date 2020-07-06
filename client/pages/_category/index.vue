@@ -4,7 +4,7 @@
       {{ category }}
     </h1>
     <div class="row mt-4">
-      <Product v-for="item in product.products" :key="item.name" :product="item" />
+      <Product v-for="item in product.products" :key="item.name" :product="item" :category="product.category" />
     </div>
   </section>
 </template>

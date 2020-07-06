@@ -12,7 +12,7 @@
               Продолжить покупки
             </nuxt-link>
           </div>
-          <div class="col-md-4 cart-price-bg rounded py-3 mb-md-0 mb-4">
+          <div class="col-md-4 cart-price-bg rounded py-3 mb-4">
             <div class="row">
               <h4 class="col">
                 Итого:
